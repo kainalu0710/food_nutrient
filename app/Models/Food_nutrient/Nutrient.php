@@ -10,4 +10,8 @@ class Nutrient extends Model {
     public function nutrients() {
         return $this->hasMany("App\Models\Food_nutrient\FoodNutrient");
     }
+
+    public function unit() {
+        return $this->belongsTo("App\Models\Food_nutrient\Unit");
+    }
 }

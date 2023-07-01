@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Food_nutrient\FoodNutrient;
 use App\Models\Food_nutrient\Food;
+use App\Models\Food_nutrient\FoodGroup;
 use App\Models\Food_nutrient\Nutrient;
+use App\Models\Food_nutrient\Unit;
 
 class FoodNutrientController extends Controller {
 

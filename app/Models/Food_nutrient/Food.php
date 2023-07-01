@@ -10,4 +10,8 @@ class Food extends Model {
     public function foodNutrients() {
         return $this->hasMany("App\Models\Food_nutrient\FoodNutrient");
     }
+
+    public function foodGroup() {
+        return $this->belongsTo("App\Models\Food_nutrient\FoodGroup");
+    }
 }
