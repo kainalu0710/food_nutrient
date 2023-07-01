@@ -9,6 +9,7 @@
     <h1>詳細ページ</h1>
     <section>
       <p>食品番号：{{ sprintf('%05d', $food->id) }}</p>
+      <p>食品群：{{ $food_group->name }}</p>
       <p>食品名：{{ $food->name }}</p>
       <table>
         <thead>

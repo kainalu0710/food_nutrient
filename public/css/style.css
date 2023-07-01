@@ -1,11 +1,9 @@
-.item-container {
-    border: 1px solid #000;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.item-container h2 {
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  body {
     margin: 0;
-}
-.item-container p {
-    margin: 0;
-}
+  }

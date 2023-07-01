@@ -5,6 +5,17 @@
   <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 </head>
 <body>
+  <header>
+      <h1>サイト内におけるタイトル</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">ナビ1</a></li>
+      <li><a href="#">ナビ2</a></li>
+      <li><a href="#">ナビ3</a></li>
+      <li><a href="#">ナビ4</a></li>
+    </ul>
+  </nav>
   <h1>食品検索</h1>
   <!-- 検索フォームや他の要素を追加 -->
   <form method="get" action="{{ url('list') }}">

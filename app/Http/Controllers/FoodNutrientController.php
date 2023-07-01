@@ -21,8 +21,18 @@ class FoodNutrientController extends Controller {
     }
 
     public function detail($id) {
+        // 食品成分テーブルからfood_idで該当データの取得
         $food_nutrients = FoodNutrient::where('food_id', '=', $id)->get();
-        $food = Food::find($id);
-        return view('food_nutrient.detail',array("food_nutrients"=>$food_nutrients, "food"=>$food));
+        // 食品テーブルから食品データの取得
+        $food = Food::where('id', '=', $id)->first();
+        // 食品データから食品群データの取得
+        $group = $food->group_id;
+        $food_group = FoodGroup::find($food->group_id);
+        
+        return view('food_nutrient.detail',array(
+            "food_nutrients"=>$food_nutrients, 
+            "food"=>$food, 
+            "food_group"=>$food_group
+        ));
     }
 }
