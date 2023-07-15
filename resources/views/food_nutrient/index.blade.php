@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>検索ページ</title>
+  <title>食品検索</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 </head>
 <body>
   <header>
-      <h1>サイト内におけるタイトル</h1>
+      <h1>食品管理サイト</h1>
   </header>
   <nav>
     <ul>
-      <li><a href="#">ナビ1</a></li>
-      <li><a href="#">ナビ2</a></li>
-      <li><a href="#">ナビ3</a></li>
-      <li><a href="#">ナビ4</a></li>
+      <li><a href="{{ asset('/list') }}">食品検索</a></li>
+      <li><a href="#">栄養計算</a></li>
+      <li><a href="#">レシピ・献立</a></li>
     </ul>
   </nav>
-  <h1>食品検索</h1>
   <!-- 検索フォームや他の要素を追加 -->
   <form method="get" action="{{ url('list') }}">
     <div>
-        <input type="text" name="food">
-        <button>検索</button>
+      <select class="food__group" name=foodGroup>
+        <option value="">--</option>
+        <?php foreach ($food_groups as $food_group) :?>
+          @if(isset($group_id))
+            <option value="{{ $food_group->id }}"@if($food_group->id == $group_id) selected @endif>{{ $food_group->name }}</option>
+          @else
+            <option value="{{ $food_group->id }}">{{ $food_group->name }}</option>
+          @endif
+        <?php endforeach;?>
+      </select>
+    </div>
+    <div>
+      <input type="text" name="food" placeholder="食品名・食材名" value="@if (isset($food_name)){{ $food_name }}@endif">
+    </div>
+    <div>
+      <button>検索</button>
     </div>
   </form>
-  <?php if(!empty($foods)):?>
+  <?php if(isset($foods)):?>
     <div>
       <ul>
         <?php foreach ($foods as $food):?>

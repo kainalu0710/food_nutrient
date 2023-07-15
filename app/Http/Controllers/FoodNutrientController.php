@@ -12,12 +12,36 @@ use App\Models\Food_nutrient\Unit;
 class FoodNutrientController extends Controller {
 
     public function index(Request $request) {
-        if (!empty($request->get("food"))) {
-            $food = $request->get("food");
-            $foods = Food::where('name', 'like', '%'.$food.'%')->get();
-            return view('food_nutrient.index',["foods"=>$foods]);
+        $food_groups = FoodGroup::all();
+        // 初期ルート
+        if (empty($request->get("food")) && empty($request->get("foodGroup"))) {
+            return view('food_nutrient.index',["food_groups"=>$food_groups]);
         }
-        return view('food_nutrient.index');
+
+        // 検索条件取得
+        $food_name = $request->get("food");
+        $group_id = $request->get("foodGroup");
+        
+        if (isset($food_name) && isset($group_id)) {
+            $foods = Food::where([
+                ['name', 'like', '%'.$food_name.'%'],
+                ['group_id', '=', $group_id]
+                ])->get();
+        } else if (isset($food_name)) {
+            $foods = Food::where('name', 'like', '%'.$food_name.'%')->get();
+        } else {
+            $foods = Food::where('group_id', '=', $group_id)->get();
+        }
+        
+        return view('food_nutrient.index',
+            array(
+                "foods"=>$foods,
+                "food_groups"=>$food_groups,
+                "request"=>$request,
+                "food_name"=>$food_name,
+                "group_id"=>$group_id
+            ));
+        // dd ($food_groups);
     }
 
     public function detail($id) {

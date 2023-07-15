@@ -4,6 +4,55 @@
     -webkit-font-smoothing: antialiased !important;
   }
 
-  body {
+body {
     margin: 0;
-  }
+}
+
+header {
+    padding: 10px;
+    text-align: center;
+    vertical-align: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    margin: 0 ;
+    padding: 10px 0 ;
+    border-bottom: #333 solid 2px;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    width: 15%; /* 項目の幅指定 */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+form div {
+    margin: 10px;
+}
+
+.food__group{
+    width: 170px;
+    height: 30px;
+}
+
