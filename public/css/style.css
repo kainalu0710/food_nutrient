@@ -1,3 +1,4 @@
+/* base設定 */
 @charset "UTF-8";
 * {
     box-sizing: border-box;
@@ -14,11 +15,37 @@ header {
     vertical-align: auto;
 }
 
+section{
+    margin: 10px 15px;
+    width: auto;
+}
+/* @media screen and (min-width: 450px) {
+    section {
+        width: 650px;
+    }
+} */
+
 h1 {
     margin: 0;
     font-size: 25px;
 }
 
+p{
+    margin-bottom: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,td {
+    border: solid 1px;
+    padding: 5px;
+}
+
+
+/* nav設定 */
 nav {
     text-align: center;
 }
@@ -40,6 +67,8 @@ nav ul li a {
     color: #333;
 }
 
+
+/*  */
 form {
     display: flex;
     justify-content: center;
@@ -51,8 +80,31 @@ form div {
     margin: 10px;
 }
 
-.food__group{
+.food__group {
     width: 170px;
     height: 30px;
 }
 
+.food__detail {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+}
+
+.food__detail p:last-child {
+    margin-bottom: 0px;
+}
+
+.detail__thead__status {
+    background-color: rgb(180, 240, 255);
+}
+.detail__thead__status th:not(:first-child) {
+    text-align: center;
+}
+
+.detail__tbody__status {
+    background-color: rgb(255, 253, 230);
+}
+.detail__tbody__status td:not(:first-child) {
+    text-align: right;
+}

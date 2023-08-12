@@ -16,7 +16,6 @@
       <li><a href="#">レシピ・献立</a></li>
     </ul>
   </nav>
-  <!-- 検索フォームや他の要素を追加 -->
   <form method="get" action="{{ url('list') }}">
     <div>
       <select class="food__group" name=foodGroup>
