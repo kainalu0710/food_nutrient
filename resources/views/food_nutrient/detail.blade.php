@@ -18,7 +18,7 @@
   </nav>
   <article>
     <section>
-      <div>
+      <div class=food__detail__area>
         <h2>食品詳細</h2>
         <div class="food__detail">
           <p>食品番号：{{ sprintf('%05d', $food->id) }}</p>

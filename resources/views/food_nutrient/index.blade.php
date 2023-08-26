@@ -16,34 +16,36 @@
       <li><a href="#">レシピ・献立</a></li>
     </ul>
   </nav>
-  <form method="get" action="{{ url('list') }}">
-    <div>
-      <select class="food__group" name=foodGroup>
-        <option value="">--</option>
-        <?php foreach ($food_groups as $food_group) :?>
-          @if(isset($group_id))
-            <option value="{{ $food_group->id }}"@if($food_group->id == $group_id) selected @endif>{{ $food_group->name }}</option>
-          @else
-            <option value="{{ $food_group->id }}">{{ $food_group->name }}</option>
-          @endif
-        <?php endforeach;?>
-      </select>
-    </div>
-    <div>
-      <input type="text" name="food" placeholder="食品名・食材名" value="@if (isset($food_name)){{ $food_name }}@endif">
-    </div>
-    <div>
-      <button>検索</button>
-    </div>
-  </form>
-  <?php if(isset($foods)):?>
-    <div>
-      <ul>
-        <?php foreach ($foods as $food):?>
-            <li><a href="/food_nutrient/public/{{ $food->id }}/detail">{{ $food->name }}</a></li>
-        <?php endforeach;?>
-        </ul>
-    </div>
-  <?php endif;?>
+  <section>
+    <form method="get" action="{{ url('list') }}">
+      <div>
+        <select class="food__group" name=foodGroup>
+          <option value="">--</option>
+          <?php foreach ($food_groups as $food_group) :?>
+            @if(isset($group_id))
+              <option value="{{ $food_group->id }}"@if($food_group->id == $group_id) selected @endif>{{ $food_group->name }}</option>
+            @else
+              <option value="{{ $food_group->id }}">{{ $food_group->name }}</option>
+            @endif
+          <?php endforeach;?>
+        </select>
+      </div>
+      <div>
+        <input type="text" name="food" placeholder="食品名・食材名" value="@if (isset($food_name)){{ $food_name }}@endif">
+      </div>
+      <div>
+        <button>検索</button>
+      </div>
+    </form>
+    <?php if(isset($foods)):?>
+      <div class=food__list>
+        <ul>
+          <?php foreach ($foods as $food):?>
+              <li><a href="/food_nutrient/public/{{ $food->id }}/detail">{{ $food->name }}</a></li>
+          <?php endforeach;?>
+          </ul>
+      </div>
+    <?php endif;?>
+  </section>
 </body>
 </html>
